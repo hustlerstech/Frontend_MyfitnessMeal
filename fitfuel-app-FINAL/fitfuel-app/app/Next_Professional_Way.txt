@@ -1,0 +1,153 @@
+Perfect 🔥 now we move from UI project → real SaaS system.
+
+You listed:
+
+* ✅ Add Protected Routes
+* ✅ Add Persistent Login (AsyncStorage)
+* ✅ Add JWT integration
+* ✅ Connect real backend
+* ✅ Add role-based permission guards
+
+This is the correct order to turn your app into production-grade architecture.
+
+---
+
+# 🚀 MASTER IMPLEMENTATION ROADMAP
+
+We will do this in **5 structured phases**.
+
+Each phase builds on the previous.
+
+---
+
+# 🟢 PHASE 1 — Persistent Login (AsyncStorage)
+
+### Goal:
+
+* When user logs in → token + role saved
+* On app reload → auto login
+* If no token → go to auth
+
+---
+
+### 🔧 What We Add:
+
+```
+expo install @react-native-async-storage/async-storage
+```
+
+Then:
+
+* Store token
+* Store role
+* Load token on app start
+* Set loading state
+
+---
+
+### 📦 Files Updated:
+
+* `AuthContext.tsx`
+* `app/_layout.tsx`
+
+---
+
+# 🟢 PHASE 2 — JWT Integration
+
+### Goal:
+
+* Backend returns JWT token
+* Store token securely
+* Attach token to API requests
+
+---
+
+### 🔧 What We Add:
+
+* axios instance
+* Authorization header
+* Token interceptor
+* 401 auto logout
+
+---
+
+### 📦 Files Added:
+
+```
+app/services/api.ts
+```
+
+---
+
+# 🟢 PHASE 3 — Protected Routes
+
+### Goal:
+
+* Prevent manual navigation to routes
+* Redirect if role mismatch
+
+Example:
+
+* Customer cannot access /(admin)
+* Admin cannot access /(superadmin)
+
+---
+
+### 🔧 Implementation:
+
+Route guard inside `_layout.tsx`
+
+---
+
+# 🟢 PHASE 4 — Role-Based Permission Guards
+
+Example:
+
+Inside Admin:
+
+* Kitchen staff cannot access earnings
+* Delivery cannot access members
+
+We add permission-based checks:
+
+```
+if (!permissions.includes('view_earnings')) return null;
+```
+
+---
+
+# 🟢 PHASE 5 — Connect Real Backend
+
+Replace mock data with:
+
+* GET /orders
+* GET /members
+* POST /login
+* GET /revenue
+
+Using JWT token automatically.
+
+---
+
+# 🏗 IMPLEMENTATION ORDER (VERY IMPORTANT)
+
+We do this exact sequence:
+
+1️⃣ Persistent Login
+2️⃣ JWT Setup
+3️⃣ Axios API Layer
+4️⃣ Protected Routes
+5️⃣ Permission Guards
+6️⃣ Connect Backend Screens
+
+---
+
+# 🎯 NOW WE START PHASE 1
+
+If you're ready, say:
+
+👉 **Start Persistent Login**
+
+And I’ll give you step-by-step safe implementation without breaking your app.
+
+We are now entering real production engineering mode 🔥
