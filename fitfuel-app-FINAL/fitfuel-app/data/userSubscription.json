@@ -1,0 +1,38 @@
+{
+  "_comment": "Seed / schema reference for user subscription. Mirrors what the real API will return. Replace service layer reads/writes with API calls when backend is ready.",
+  "userId": "demo_user_001",
+  "activePlanId": "free",
+  "status": "active",
+  "startDate": "2026-01-01",
+  "endDate": "2099-12-31",
+  "billingPeriod": "month",
+  "credits": {
+    "totalAmount": 0,
+    "usedAmount": 0,
+    "bankedAmount": 0,
+    "availableAmount": 0
+  },
+  "plans": [
+    {
+      "id": "free",
+      "name": "Free Plan",
+      "price": 0,
+      "period": "forever",
+      "isActive": true
+    },
+    {
+      "id": "basic",
+      "name": "Basic Plan",
+      "price": 499,
+      "period": "month",
+      "isActive": false
+    },
+    {
+      "id": "premium",
+      "name": "Premium Plan",
+      "price": 999,
+      "period": "month",
+      "isActive": false
+    }
+  ]
+}

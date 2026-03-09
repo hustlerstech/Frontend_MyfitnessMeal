@@ -82,7 +82,7 @@ export default function RegisterScreen() {
       await new Promise(resolve => setTimeout(resolve, 1500));
 
       // Navigate to home
-      router.replace('/(tabs)');
+      router.replace('/customer');
     } catch (err) {
       setErrors({
         ...errors,
@@ -96,7 +96,7 @@ export default function RegisterScreen() {
   // Handle Skip
   const handleSkip = () => {
     // Navigate to home with incomplete profile
-    router.replace('/(tabs)');
+    router.replace('/customer');
   };
 
   return (

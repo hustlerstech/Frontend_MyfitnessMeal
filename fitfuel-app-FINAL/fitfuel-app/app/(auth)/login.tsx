@@ -99,8 +99,8 @@ export default function LoginScreen() {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1500));
 
-      // Use the pending role (selected on role selection screen)
-      const roleToLogin = pendingRole || 'admin';
+      // Use the pending role (set on the welcome screen before navigating here)
+      const roleToLogin = pendingRole || 'customer';
       login(roleToLogin);
 
       // Navigation will be handled automatically by RootLayout
@@ -146,11 +146,6 @@ export default function LoginScreen() {
     }
   };
 
-  // Demo mode handlers
-  const handleDemoLogin = (role: 'customer' | 'admin' | 'superadmin') => {
-    login(role);
-  };
-
   return (
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView
@@ -190,38 +185,6 @@ export default function LoginScreen() {
             />
           )}
 
-          {/* Demo Mode Section */}
-          <View style={styles.demoSection}>
-            <View style={styles.divider}>
-              <View style={styles.dividerLine} />
-              <Text style={styles.dividerText}>Select Role (Demo Mode)</Text>
-              <View style={styles.dividerLine} />
-            </View>
-
-            <TouchableOpacity
-              style={[styles.demoButton, styles.customerButton]}
-              onPress={() => handleDemoLogin('customer')}
-              activeOpacity={0.7}
-            >
-              <Text style={styles.demoButtonText}>👤 Login as Customer</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={[styles.demoButton, styles.adminButton]}
-              onPress={() => handleDemoLogin('admin')}
-              activeOpacity={0.7}
-            >
-              <Text style={styles.demoButtonText}>🏪 Login as Admin</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={[styles.demoButton, styles.superAdminButton]}
-              onPress={() => handleDemoLogin('superadmin')}
-              activeOpacity={0.7}
-            >
-              <Text style={styles.demoButtonText}>⚡ Login as SuperAdmin</Text>
-            </TouchableOpacity>
-          </View>
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -421,46 +384,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: Theme.spacing.xl,
     textDecorationLine: 'none',
-  },
-  // Demo Mode Styles
-  demoSection: {
-    paddingHorizontal: Theme.spacing.screenPadding,
-    paddingTop: Theme.spacing.xxl,
-  },
-  divider: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: Theme.spacing.lg,
-  },
-  dividerLine: {
-    flex: 1,
-    height: 1,
-    backgroundColor: '#E5E7EB',
-  },
-  dividerText: {
-    ...Theme.textStyles.caption,
-    color: Theme.colors.textSecondary,
-    paddingHorizontal: Theme.spacing.md,
-    fontWeight: '600',
-  },
-  demoButton: {
-    paddingVertical: 14,
-    borderRadius: 8,
-    alignItems: 'center',
-    marginBottom: Theme.spacing.sm,
-  },
-  customerButton: {
-    backgroundColor: '#3B82F6',
-  },
-  adminButton: {
-    backgroundColor: Theme.colors.primary,
-  },
-  superAdminButton: {
-    backgroundColor: '#8B5CF6',
-  },
-  demoButtonText: {
-    fontSize: 15,
-    fontWeight: '600',
-    color: '#fff',
   },
 });

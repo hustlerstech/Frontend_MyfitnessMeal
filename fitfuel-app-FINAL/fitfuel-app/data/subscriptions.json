@@ -1,0 +1,37 @@
+{
+  "plans": [
+    {
+      "id": "free",
+      "name": "Free",
+      "monthlyPrice": 0,
+      "benefits": [
+        "Browse all meals",
+        "Direct purchase at regular price",
+        "₹49 delivery fee per order"
+      ]
+    },
+    {
+      "id": "basic",
+      "name": "Basic",
+      "monthlyPrice": 499,
+      "benefits": [
+        "60 meal credits / month",
+        "Subscriber pricing on all meals",
+        "Free delivery on every order",
+        "Weekly meal planner access"
+      ]
+    },
+    {
+      "id": "premium",
+      "name": "Premium",
+      "monthlyPrice": 999,
+      "benefits": [
+        "90 meal credits / month",
+        "Subscriber pricing on all meals",
+        "Free delivery on every order",
+        "Weekly meal planner access",
+        "Priority customer support"
+      ]
+    }
+  ]
+}

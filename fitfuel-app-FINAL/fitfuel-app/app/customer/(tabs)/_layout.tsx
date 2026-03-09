@@ -2,7 +2,7 @@
  * Tabs Layout
  * 
  * Bottom tab navigation for main app screens
- * 4 tabs: Home, Meals, Tracking, Profile
+ * 4 tabs: Home, Meals, Orders, Profile
  * 
  * Features:
  * - Bottom tab bar with icons
@@ -13,7 +13,7 @@
 
 import { Tabs } from 'expo-router';
 import { Text } from 'react-native';
-import { Theme } from '../../constants';
+import { Theme } from '../../../constants';
 
 export default function TabsLayout() {
   return (
@@ -26,12 +26,13 @@ export default function TabsLayout() {
           backgroundColor: Theme.colors.tabBackground,
           borderTopWidth: 1,
           borderTopColor: Theme.colors.borderLight,
-          height: Theme.spacing.tabBar.height,
-          paddingBottom: Theme.spacing.tabBar.paddingVertical,
-          paddingTop: Theme.spacing.tabBar.paddingVertical,
+          height: 60,
+          paddingBottom: 8,
+          paddingTop: 8,
         },
         tabBarLabelStyle: {
-          ...Theme.textStyles.tabLabel,
+          fontSize: 12,
+          fontWeight: '500',
         },
       }}
     >
@@ -56,12 +57,19 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="tracking"
         options={{
-          title: 'Tracking',
+          href: null, // Hidden from tab bar — not needed for now
+        }}
+      />
+      <Tabs.Screen
+        name="orders"
+        options={{
+          title: 'Orders',
           tabBarIcon: ({ color, focused }) => (
-            <TabIcon icon="📊" color={color} focused={focused} />
+            <TabIcon icon="📦" color={color} focused={focused} />
           ),
         }}
       />
+
       <Tabs.Screen
         name="profile"
         options={{
@@ -77,12 +85,7 @@ export default function TabsLayout() {
           href: null, // Hide from tab bar
         }}
       />
-      <Tabs.Screen
-        name="meal-detail"
-        options={{
-          href: null, // Hide from tab bar
-        }}
-      />
+
     </Tabs>
   );
 }

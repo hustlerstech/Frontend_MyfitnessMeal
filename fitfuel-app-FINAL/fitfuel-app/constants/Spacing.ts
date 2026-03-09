@@ -51,7 +51,7 @@ export const Spacing = {
     paddingVertical: 16,    // Button vertical padding
     paddingHorizontal: 24,  // Button horizontal padding
     minHeight: 48,          // Minimum touchable height
-    borderRadius: 12,       // Button border radius
+    borderRadius: 24,       // Button border radius (pill-style per Figma)
     iconGap: 8,             // Gap between icon and text in button
   },
 
@@ -59,14 +59,14 @@ export const Spacing = {
     paddingVertical: 16,    // Input vertical padding
     paddingHorizontal: 16,  // Input horizontal padding
     minHeight: 56,          // Input minimum height
-    borderRadius: 8,        // Input border radius
+    borderRadius: 24,       // Input border radius (rounded per Figma)
     marginBottom: 16,       // Space between inputs
   },
 
   card: {
     padding: 16,            // Card inner padding
     margin: 16,             // Card outer margin
-    borderRadius: 12,       // Card border radius
+    borderRadius: 16,       // Card border radius (Figma: 16-20px)
     gap: 12,                // Gap between card elements
   },
 
@@ -124,7 +124,7 @@ export const Spacing = {
     imageHeight: 180,       // Meal image height
     padding: 12,            // Card padding
     margin: 12,             // Card margin
-    borderRadius: 12,       // Card border radius
+    borderRadius: 16,       // Card border radius (Figma: 16px)
     contentGap: 8,          // Gap between content elements
   },
 
@@ -132,7 +132,7 @@ export const Spacing = {
   chefCard: {
     imageHeight: 120,       // Chef image height
     padding: 12,            // Card padding
-    borderRadius: 12,       // Card border radius
+    borderRadius: 16,       // Card border radius
   },
 
   // Banner/Hero section
@@ -185,11 +185,11 @@ export const Margin = {
 export const BorderRadius = {
   none: 0,
   xs: 4,      // Extra small radius
-  sm: 8,      // Small radius (inputs)
-  md: 12,     // Medium radius (buttons, cards)
-  lg: 16,     // Large radius (modals, banners)
-  xl: 20,     // Extra large radius
-  xxl: 24,    // Very large radius
+  sm: 24,     // Small radius (inputs — Figma uses 24px rounded inputs)
+  md: 24,     // Medium radius (buttons — Figma uses pill-style buttons)
+  lg: 16,     // Large radius (cards)
+  xl: 20,     // Extra large radius (large cards)
+  xxl: 24,    // Very large radius (modals)
   full: 9999, // Fully rounded (pills, circles)
 } as const;
 

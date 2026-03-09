@@ -26,8 +26,8 @@ import {
   StatCard,
   CaloriesChart,
   CircularProgress
-} from '../../components';
-import { Theme } from '../../constants';
+} from '../../../components';
+import { Theme } from '../../../constants';
 
 // Mock data
 const TODAY_DATA = {

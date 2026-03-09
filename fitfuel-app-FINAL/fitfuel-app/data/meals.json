@@ -1,0 +1,232 @@
+[
+  {
+    "id": "1",
+    "name": "Grilled Chicken Bowl",
+    "description": "Quinoa, grilled chicken, roasted vegetables with tahini dressing",
+    "category": "High Protein",
+    "chefName": "Chef Maria",
+    "nutrition": {
+      "calories": 520,
+      "protein": 42,
+      "carbs": 48,
+      "fats": 18,
+      "fiber": 8,
+      "sugar": 6,
+      "sodium": 450
+    },
+    "rating": 4.8,
+    "reviews": 234,
+    "price": {
+      "regular": 299,
+      "subscriber": 249
+    },
+    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80"
+  },
+  {
+    "id": "2",
+    "name": "High-Protein Pasta",
+    "description": "Whole wheat pasta with lean turkey meatballs and tomato sauce",
+    "category": "High Protein",
+    "chefName": "Chef Rahul",
+    "nutrition": {
+      "calories": 480,
+      "protein": 38,
+      "carbs": 52,
+      "fats": 14,
+      "fiber": 6,
+      "sugar": 4,
+      "sodium": 520
+    },
+    "rating": 4.6,
+    "reviews": 189,
+    "price": {
+      "regular": 249,
+      "subscriber": 199
+    },
+    "image": "https://skinnyspatula.com/wp-content/uploads/2025/01/High_Protein_Chicken_Fajita_Pasta_2.jpg"
+  },
+  {
+    "id": "3",
+    "name": "Salmon Power Bowl",
+    "description": "Grilled salmon, brown rice, edamame, avocado, sesame ginger dressing",
+    "category": "Healthy Fats",
+    "chefName": "Chef Priya",
+    "nutrition": {
+      "calories": 580,
+      "protein": 45,
+      "carbs": 42,
+      "fats": 24,
+      "fiber": 7,
+      "sugar": 5,
+      "sodium": 390
+    },
+    "rating": 4.9,
+    "reviews": 312,
+    "price": {
+      "regular": 399,
+      "subscriber": 329
+    },
+    "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&q=80"
+  },
+  {
+    "id": "4",
+    "name": "Vegetarian Buddha Bowl",
+    "description": "Mixed greens, chickpeas, roasted sweet potato, tahini sauce",
+    "category": "Vegetarian",
+    "chefName": "Chef Amit",
+    "nutrition": {
+      "calories": 420,
+      "protein": 18,
+      "carbs": 58,
+      "fats": 16,
+      "fiber": 12,
+      "sugar": 8,
+      "sodium": 320
+    },
+    "rating": 4.5,
+    "reviews": 156,
+    "price": {
+      "regular": 199,
+      "subscriber": 159
+    },
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80"
+  },
+  {
+    "id": "5",
+    "name": "Lean Chicken Burrito Bowl",
+    "description": "Lean chicken, black beans, brown rice, pico de gallo, guacamole",
+    "category": "High Protein",
+    "chefName": "Chef Carlos",
+    "nutrition": {
+      "calories": 550,
+      "protein": 40,
+      "carbs": 55,
+      "fats": 20,
+      "fiber": 9,
+      "sugar": 5,
+      "sodium": 580
+    },
+    "rating": 4.7,
+    "reviews": 201,
+    "price": {
+      "regular": 329,
+      "subscriber": 269
+    },
+    "image": "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=600&q=80"
+  },
+  {
+    "id": "6",
+    "name": "Tofu Stir Fry",
+    "description": "Crispy tofu, mixed vegetables, teriyaki sauce, jasmine rice",
+    "category": "Vegetarian",
+    "chefName": "Chef Li",
+    "nutrition": {
+      "calories": 380,
+      "protein": 22,
+      "carbs": 48,
+      "fats": 12,
+      "fiber": 6,
+      "sugar": 7,
+      "sodium": 610
+    },
+    "rating": 4.4,
+    "reviews": 143,
+    "price": {
+      "regular": 219,
+      "subscriber": 179
+    },
+    "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80"
+  },
+  {
+    "id": "7",
+    "name": "Turkey Wrap",
+    "description": "Whole wheat wrap, lean turkey, hummus, mixed greens, tomatoes",
+    "category": "Low Calorie",
+    "chefName": "Chef Sarah",
+    "nutrition": {
+      "calories": 350,
+      "protein": 32,
+      "carbs": 38,
+      "fats": 10,
+      "fiber": 5,
+      "sugar": 3,
+      "sodium": 420
+    },
+    "rating": 4.6,
+    "reviews": 178,
+    "price": {
+      "regular": 179,
+      "subscriber": 149
+    },
+    "image": "https://images.pexels.com/photos/10837796/pexels-photo-10837796.jpeg"
+  },
+  {
+    "id": "8",
+    "name": "Shrimp & Avocado Salad",
+    "description": "Grilled shrimp, mixed greens, avocado, cherry tomatoes, lime dressing",
+    "category": "Low Calorie",
+    "chefName": "Chef Maria",
+    "nutrition": {
+      "calories": 320,
+      "protein": 28,
+      "carbs": 18,
+      "fats": 16,
+      "fiber": 6,
+      "sugar": 4,
+      "sodium": 360
+    },
+    "rating": 4.8,
+    "reviews": 267,
+    "price": {
+      "regular": 349,
+      "subscriber": 289
+    },
+    "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&q=80"
+  },
+  {
+    "id": "9",
+    "name": "Chicken Tikka Masala",
+    "description": "Tender chicken in creamy tomato sauce, basmati rice, naan",
+    "category": "High Protein",
+    "chefName": "Chef Rahul",
+    "nutrition": {
+      "calories": 620,
+      "protein": 48,
+      "carbs": 62,
+      "fats": 22,
+      "fiber": 5,
+      "sugar": 8,
+      "sodium": 680
+    },
+    "rating": 4.9,
+    "reviews": 389,
+    "price": {
+      "regular": 319,
+      "subscriber": 259
+    },
+    "image": "https://images.pexels.com/photos/8284645/pexels-photo-8284645.jpeg"
+  },
+  {
+    "id": "10",
+    "name": "Greek Quinoa Bowl",
+    "description": "Quinoa, feta cheese, olives, cucumber, tomatoes, tzatziki",
+    "category": "Vegetarian",
+    "chefName": "Chef Dimitri",
+    "nutrition": {
+      "calories": 450,
+      "protein": 20,
+      "carbs": 52,
+      "fats": 18,
+      "fiber": 7,
+      "sugar": 5,
+      "sodium": 480
+    },
+    "rating": 4.5,
+    "reviews": 212,
+    "price": {
+      "regular": 269,
+      "subscriber": 219
+    },
+    "image": "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=600&q=80"
+  }
+]

@@ -151,7 +151,7 @@ export const OTPInput: React.FC<OTPInputProps> = ({
         .map((_, index) => (
           <TextInput
             key={index}
-            ref={(ref) => (inputRefs.current[index] = ref)}
+            ref={(ref) => { inputRefs.current[index] = ref; }}
             style={[
               styles.input,
               otp[index] && styles.inputFilled,
@@ -161,11 +161,6 @@ export const OTPInput: React.FC<OTPInputProps> = ({
             value={otp[index]}
             onChangeText={(text) => handleChange(text, index)}
             onKeyPress={(e) => handleKeyPress(e, index)}
-            onPaste={(e) => {
-              if (index === 0) {
-                handlePaste(e.nativeEvent.text);
-              }
-            }}
             keyboardType="number-pad"
             maxLength={1}
             selectTextOnFocus

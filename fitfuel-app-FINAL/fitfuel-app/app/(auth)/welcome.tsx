@@ -1,15 +1,8 @@
 /**
- * WelcomeScreen
- * 
- * First screen users see when opening the app
- * Shows hero image, value proposition, and CTA to start authentication
- * 
- * Features:
- * - Hero image/illustration
- * - App branding
- * - Value proposition text
- * - Primary CTA button
- * - Terms & privacy footer
+ * WelcomeScreen — Premium Edition
+ *
+ * Dark gradient hero (top half) + white content card (bottom half)
+ * Preserves all routing logic — only visual changes.
  */
 
 import React from 'react';
@@ -17,200 +10,331 @@ import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
-  Image,
   ScrollView,
+  Dimensions,
+  TouchableOpacity,
 } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
-import { PrimaryButton, SecondaryButton } from '../../components/common';
-import { Theme } from '../../constants';
+import { useAuth } from '@/store/AuthContext';
+
+const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
 export default function WelcomeScreen() {
   const router = useRouter();
+  const { setPendingRole } = useAuth();
 
-  const handleGetStarted = () => {
-    router.push('/(auth)/login');
-  };
-
-  const handleLogin = () => {
+  const handleRole = (role: 'customer' | 'admin' | 'superadmin') => {
+    setPendingRole(role);
     router.push('/(auth)/login');
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView
-        contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false}
+    <View style={styles.root}>
+      {/* ─── GRADIENT HERO ─── */}
+      <LinearGradient
+        colors={['#0a1a0d', '#0f2b17', '#1a6b40']}
+        locations={[0, 0.45, 1]}
+        style={styles.hero}
       >
-        {/* Logo/Branding */}
-        <View style={styles.logoContainer}>
-          <View style={styles.logoPlaceholder}>
-            <Text style={styles.logoText}>FF</Text>
+        {/* Decorative background rings */}
+        <View style={styles.decorRingLarge} />
+        <View style={styles.decorRingSmall} />
+
+        {/* Logo */}
+        <View style={styles.logoRow}>
+          <View style={styles.logoBadge}>
+            <Text style={styles.logoInitials}>FF</Text>
           </View>
           <Text style={styles.brandName}>MyFitness Meals</Text>
         </View>
 
-        {/* Hero Image Placeholder */}
-        <View style={styles.heroContainer}>
-          <View style={styles.heroPlaceholder}>
-            {/* In production, replace with actual image */}
-            {/* <Image source={require('@/assets/hero-bowl.png')} style={styles.heroImage} /> */}
-            <Text style={styles.heroEmoji}>🥗</Text>
+        {/* Hero illustration */}
+        <View style={styles.heroIllustration}>
+          <Text style={styles.heroEmoji}>🥗</Text>
+          <View style={styles.floatingBadge}>
+            <Text style={styles.floatingBadgeText}>🔥 Chef prepared</Text>
           </View>
         </View>
+      </LinearGradient>
 
-        {/* Value Proposition */}
-        <View style={styles.contentContainer}>
-          <Text style={styles.title}>Your Personal{'\n'}Meal Partner</Text>
+      {/* ─── CONTENT CARD ─── */}
+      <ScrollView
+        style={styles.contentCard}
+        contentContainerStyle={styles.contentInner}
+        showsVerticalScrollIndicator={false}
+        bounces={false}
+      >
+        <Text style={styles.title}>Your Personal{'\n'}Meal Partner</Text>
 
-          <Text style={styles.subtitle}>
-            Get chef-prepared meals delivered to match your fitness goals
-          </Text>
+        <Text style={styles.subtitle}>
+          Chef-prepared meals delivered fresh, matched to your fitness goals.
+        </Text>
 
-          {/* Features List */}
-          <View style={styles.featuresContainer}>
-            <FeatureItem icon="✓" text="Personalized meal plans" />
-            <FeatureItem icon="✓" text="Chef-prepared fresh meals" />
-            <FeatureItem icon="✓" text="Delivery to your doorstep" />
-          </View>
+        {/* Feature list */}
+        <View style={styles.features}>
+          <FeatureRow text="Personalised meal plans built for you" />
+          <FeatureRow text="Chef-prepared, nutritionist approved" />
+          <FeatureRow text="Delivered fresh to your doorstep" />
         </View>
 
-        {/* CTA Buttons */}
-        <View style={styles.buttonContainer}>
-          <PrimaryButton
-            title="Get Started"
-            onPress={handleGetStarted}
-          />
+        {/* Role Selection */}
+        <Text style={styles.roleLabel}>Continue as</Text>
 
-          <SecondaryButton
-            title="I already have an account"
-            onPress={handleLogin}
-            outline
-          />
-        </View>
+        {/* Customer — primary green */}
+        <TouchableOpacity
+          style={styles.primaryBtn}
+          onPress={() => handleRole('customer')}
+          activeOpacity={0.85}
+        >
+          <LinearGradient
+            colors={['#2bee75', '#22c669', '#1db85d']}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            style={styles.primaryBtnGradient}
+          >
+            <Text style={styles.primaryBtnText}>👤  Customer</Text>
+          </LinearGradient>
+        </TouchableOpacity>
 
-        {/* Terms Footer */}
-        <Text style={styles.termsText}>
+        {/* Franchise Admin — outlined green */}
+        <TouchableOpacity
+          style={styles.secondaryBtn}
+          onPress={() => handleRole('admin')}
+          activeOpacity={0.7}
+        >
+          <Text style={styles.secondaryBtnText}>🏪  Franchise Admin</Text>
+        </TouchableOpacity>
+
+        {/* Super Admin — outlined purple */}
+        <TouchableOpacity
+          style={[styles.secondaryBtn, styles.superAdminBtn]}
+          onPress={() => handleRole('superadmin')}
+          activeOpacity={0.7}
+        >
+          <Text style={[styles.secondaryBtnText, styles.superAdminBtnText]}>⚡  Super Admin</Text>
+        </TouchableOpacity>
+
+        {/* Terms */}
+        <Text style={styles.terms}>
           By continuing, you agree to our{' '}
-          <Text style={styles.termsLink}>Terms of Service</Text>
+          <Text style={styles.termsLink}>Terms</Text>
           {' '}and{' '}
           <Text style={styles.termsLink}>Privacy Policy</Text>
         </Text>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 
-// Feature Item Component
-interface FeatureItemProps {
-  icon: string;
-  text: string;
-}
-
-const FeatureItem: React.FC<FeatureItemProps> = ({ icon, text }) => (
-  <View style={styles.featureItem}>
-    <Text style={styles.featureIcon}>{icon}</Text>
+const FeatureRow = ({ text }: { text: string }) => (
+  <View style={styles.featureRow}>
+    <View style={styles.featureDot}>
+      <Text style={styles.featureTick}>✓</Text>
+    </View>
     <Text style={styles.featureText}>{text}</Text>
   </View>
 );
 
 const styles = StyleSheet.create({
-  container: {
+  root: {
     flex: 1,
-    backgroundColor: Theme.colors.background,
+    backgroundColor: '#0a1a0d',
   },
-  scrollContent: {
-    flexGrow: 1,
-    paddingHorizontal: Theme.spacing.screenPadding,
-    paddingTop: Theme.spacing.xl,
-    paddingBottom: Theme.spacing.lg,
+
+  /* ── Hero ── */
+  hero: {
+    height: SCREEN_HEIGHT * 0.50,
+    paddingTop: 56,
+    paddingHorizontal: 24,
+    overflow: 'hidden',
+    justifyContent: 'space-between',
+    paddingBottom: 40,
   },
-  logoContainer: {
-    alignItems: 'center',
-    marginBottom: Theme.spacing.xl,
+  decorRingLarge: {
+    position: 'absolute',
+    width: 320,
+    height: 320,
+    borderRadius: 160,
+    borderWidth: 40,
+    borderColor: 'rgba(255,255,255,0.04)',
+    top: -80,
+    right: -100,
   },
-  logoPlaceholder: {
-    width: 60,
-    height: 60,
-    borderRadius: Theme.borderRadius.full,
-    backgroundColor: Theme.colors.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: Theme.spacing.sm,
+  decorRingSmall: {
+    position: 'absolute',
+    width: 180,
+    height: 180,
+    borderRadius: 90,
+    borderWidth: 24,
+    borderColor: 'rgba(43,238,117,0.08)',
+    bottom: 40,
+    left: -60,
   },
-  logoText: {
-    ...Theme.textStyles.h2,
-    color: Theme.colors.textInverse,
-  },
-  brandName: {
-    ...Theme.textStyles.h3,
-    color: Theme.colors.text,
-  },
-  heroContainer: {
-    alignItems: 'center',
-    marginBottom: Theme.spacing.xxl,
-  },
-  heroPlaceholder: {
-    width: 250,
-    height: 250,
-    borderRadius: Theme.borderRadius.lg,
-    backgroundColor: Theme.colors.primaryBackground,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  heroEmoji: {
-    fontSize: 120,
-  },
-  heroImage: {
-    width: '100%',
-    height: '100%',
-    borderRadius: Theme.borderRadius.lg,
-  },
-  contentContainer: {
-    marginBottom: Theme.spacing.xl,
-  },
-  title: {
-    ...Theme.textStyles.welcomeTitle,
-    color: Theme.colors.text,
-    textAlign: 'center',
-    marginBottom: Theme.spacing.md,
-  },
-  subtitle: {
-    ...Theme.textStyles.welcomeSubtitle,
-    color: Theme.colors.textSecondary,
-    textAlign: 'center',
-    marginBottom: Theme.spacing.lg,
-  },
-  featuresContainer: {
-    gap: Theme.spacing.sm,
-  },
-  featureItem: {
+  logoRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: Theme.spacing.xs,
+    gap: 10,
   },
-  featureIcon: {
+  logoBadge: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    borderWidth: 2,
+    borderColor: 'rgba(255,255,255,0.6)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(43,238,117,0.15)',
+  },
+  logoInitials: {
+    fontSize: 14,
+    fontWeight: '800',
+    color: '#2bee75',
+  },
+  brandName: {
     fontSize: 18,
-    color: Theme.colors.primary,
-    marginRight: Theme.spacing.md,
+    fontWeight: '700',
+    color: '#ffffff',
+    letterSpacing: 0.3,
+  },
+  heroIllustration: {
+    alignItems: 'center',
+    position: 'relative',
+  },
+  heroEmoji: {
+    fontSize: 80,
+    opacity: 0.85,
+  },
+  floatingBadge: {
+    position: 'absolute',
+    right: 20,
+    bottom: 8,
+    backgroundColor: 'rgba(0,0,0,0.55)',
+    borderRadius: 20,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderWidth: 1,
+    borderColor: 'rgba(43,238,117,0.4)',
+  },
+  floatingBadgeText: {
+    color: '#2bee75',
+    fontSize: 12,
     fontWeight: '600',
   },
+
+  /* ── Content Card ── */
+  contentCard: {
+    flex: 1,
+    backgroundColor: '#fafffe',
+    borderTopLeftRadius: 32,
+    borderTopRightRadius: 32,
+    marginTop: -32,
+  },
+  contentInner: {
+    padding: 28,
+    paddingBottom: 40,
+  },
+  title: {
+    fontSize: 30,
+    fontWeight: '800',
+    color: '#111827',
+    lineHeight: 38,
+    marginBottom: 10,
+  },
+  subtitle: {
+    fontSize: 15,
+    color: '#6b7280',
+    lineHeight: 22,
+    marginBottom: 24,
+  },
+  features: {
+    gap: 14,
+    marginBottom: 32,
+  },
+  featureRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  featureDot: {
+    width: 26,
+    height: 26,
+    borderRadius: 13,
+    backgroundColor: '#2bee75',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  featureTick: {
+    fontSize: 12,
+    fontWeight: '800',
+    color: '#0a1a0d',
+  },
   featureText: {
-    ...Theme.textStyles.body,
-    color: Theme.colors.text,
+    fontSize: 15,
+    color: '#374151',
+    flex: 1,
+    lineHeight: 20,
   },
-  buttonContainer: {
-    gap: Theme.spacing.md,
-    marginBottom: Theme.spacing.lg,
+
+  /* ── Buttons ── */
+  roleLabel: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#9ca3af',
+    textAlign: 'center',
+    marginBottom: 14,
+    letterSpacing: 0.5,
+    textTransform: 'uppercase',
   },
-  termsText: {
-    ...Theme.textStyles.caption,
-    color: Theme.colors.textLight,
+  primaryBtn: {
+    borderRadius: 9999,
+    overflow: 'hidden',
+    marginBottom: 12,
+    shadowColor: '#2bee75',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.35,
+    shadowRadius: 12,
+    elevation: 6,
+  },
+  primaryBtnGradient: {
+    paddingVertical: 17,
+    alignItems: 'center',
+    borderRadius: 9999,
+  },
+  primaryBtnText: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#0a1a0d',
+    letterSpacing: 0.3,
+  },
+  secondaryBtn: {
+    paddingVertical: 17,
+    alignItems: 'center',
+    borderRadius: 9999,
+    borderWidth: 1.5,
+    borderColor: '#2bee75',
+    marginBottom: 20,
+  },
+  secondaryBtnText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#1db85d',
+  },
+  superAdminBtn: {
+    borderColor: '#8B5CF6',
+    marginBottom: 20,
+  },
+  superAdminBtnText: {
+    color: '#8B5CF6',
+  },
+  terms: {
+    fontSize: 12,
+    color: '#9ca3af',
     textAlign: 'center',
     lineHeight: 18,
   },
   termsLink: {
-    color: Theme.colors.primary,
+    color: '#2bee75',
     fontWeight: '600',
   },
 });

@@ -12,12 +12,12 @@
  * Will be loaded via expo-font
  */
 export const FontFamily = {
-  light: 'Poppins-Light',           // 300 weight
-  regular: 'Poppins-Regular',       // 400 weight (default)
-  medium: 'Poppins-Medium',         // 500 weight
-  semiBold: 'Poppins-SemiBold',     // 600 weight
-  bold: 'Poppins-Bold',             // 700 weight
-  extraBold: 'Poppins-ExtraBold',   // 800 weight (optional)
+  light: 'Manrope_300Light',           // 300 weight
+  regular: 'Manrope_400Regular',       // 400 weight (default)
+  medium: 'Manrope_500Medium',         // 500 weight
+  semiBold: 'Manrope_600SemiBold',     // 600 weight
+  bold: 'Manrope_700Bold',           // 700 weight
+  extraBold: 'Manrope_800ExtraBold', // 800 weight (optional)
 } as const;
 
 /**
@@ -359,8 +359,8 @@ export const TextStyles = {
   // Welcome screen
   welcomeTitle: {
     fontFamily: FontFamily.bold,
-    fontSize: FontSize.xxl,
-    lineHeight: FontSize.xxl * LineHeight.tight,
+    fontSize: 30,
+    lineHeight: 30 * LineHeight.tight,
     letterSpacing: LetterSpacing.tight,
   },
 

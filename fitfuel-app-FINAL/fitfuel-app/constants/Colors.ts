@@ -1,123 +1,124 @@
 /**
  * Colors - MyFitness Meals Design System
- * 
- * Complete color palette based on Figma design
- * Primary: Electric Green (#00D563) - Swiggy/Zomato inspired
- * Style: Modern food delivery app aesthetic
+ *
+ * Updated to match Figma prototype design tokens.
+ * Primary: #2bee75 (vibrant green)
+ * Background: #f5f8f6 (light mint — not pure white)
  */
 
 export const Colors = {
   // Primary Brand Colors
-  primary: '#00D563',           // Electric Green - Main brand color
-  primaryLight: '#33E082',      // Lighter green for hover states
-  primaryDark: '#00B854',       // Darker green for pressed states
-  primaryBackground: '#F0FFF4', // Very light green for backgrounds
+  primary: '#2bee75',           // Figma green — main brand color
+  primaryLight: '#5df49a',      // Lighter green for hover states
+  primaryDark: '#1db85d',       // Darker green for pressed states
+  primaryBackground: '#f0fff8', // Very light green tint
 
-  // Background Colors
-  background: '#FFFFFF',        // Main app background (white)
-  backgroundSecondary: '#F8F8F8', // Secondary background (light grey)
-  backgroundTertiary: '#F0F0F0', // Tertiary background
+  // Backgrounds
+  background: '#f5f8f6',          // Light mint (was #FFFFFF)
+  backgroundSecondary: '#f9fafb', // Input / card inner bg (was #F8F8F8)
+  backgroundTertiary: '#f3f4f6',  // Chips / inactive tabs (was #F0F0F0)
 
   // Text Colors
-  text: '#1A1A1A',             // Primary dark text
-  textSecondary: '#666666',    // Secondary grey text
-  textLight: '#999999',        // Light grey text (captions)
-  textPlaceholder: '#BDBDBD',  // Placeholder text
+  text: '#111827',             // Dark text (was #1A1A1A)
+  textSecondary: '#6b7280',    // Secondary grey (was #666666)
+  textLight: '#9ca3af',        // Light grey captions (was #999999)
+  textPlaceholder: '#d1d5db',  // Placeholder (was #BDBDBD)
   textInverse: '#FFFFFF',      // White text on dark backgrounds
 
   // UI Element Colors
-  border: '#E0E0E0',           // Default border color
-  borderLight: '#F0F0F0',      // Lighter borders
-  borderDark: '#CCCCCC',       // Darker borders
-  divider: '#F0F0F0',          // Divider lines
+  border: '#e5e7eb',           // Default border (was #E0E0E0)
+  borderLight: '#f3f4f6',      // Lighter borders (was #F0F0F0)
+  borderDark: '#d1d5db',       // Darker borders (was #CCCCCC)
+  divider: '#f3f4f6',          // Divider lines
 
   // Card & Surface Colors
   card: '#FFFFFF',             // Card background
   cardElevated: '#FFFFFF',     // Elevated card with shadow
-  surface: '#FAFAFA',          // Surface color
+  surface: '#f9fafb',          // Surface color
 
   // Status Colors
-  success: '#00D563',          // Success green (same as primary)
+  success: '#2bee75',          // Success green (matches primary)
   error: '#FF3B30',            // Error red
   warning: '#FFCC00',          // Warning yellow
   info: '#007AFF',             // Info blue
 
   // Input Colors
-  inputBackground: '#F8F8F8',  // Input field background
-  inputBorder: '#E0E0E0',      // Input border
-  inputFocus: '#00D563',       // Input border when focused
+  inputBackground: '#f9fafb',  // Input field background (was #F8F8F8)
+  inputBorder: '#e5e7eb',      // Input border (was #E0E0E0)
+  inputFocus: '#2bee75',       // Input border when focused
   inputError: '#FF3B30',       // Input border on error
-  inputDisabled: '#F0F0F0',    // Disabled input background
+  inputDisabled: '#f3f4f6',    // Disabled input background
 
   // Button Colors
-  buttonPrimary: '#00D563',     // Primary button
-  buttonPrimaryHover: '#00B854', // Primary button hover
-  buttonPrimaryPressed: '#009940', // Primary button pressed
-  buttonSecondary: '#F8F8F8',   // Secondary button
-  buttonDisabled: '#E0E0E0',    // Disabled button
-  buttonTextDisabled: '#999999', // Disabled button text
+  buttonPrimary: '#2bee75',         // Primary button (was #00D563)
+  buttonPrimaryHover: '#1db85d',    // Primary button hover
+  buttonPrimaryPressed: '#17a050',  // Primary button pressed
+  buttonSecondary: '#f9fafb',       // Secondary button
+  buttonDisabled: '#e5e7eb',        // Disabled button
+  buttonTextDisabled: '#9ca3af',    // Disabled button text
 
   // Overlay & Shadow
-  overlay: 'rgba(0, 0, 0, 0.5)',      // Modal overlay
-  overlayLight: 'rgba(0, 0, 0, 0.3)', // Light overlay
-  shadow: 'rgba(0, 0, 0, 0.1)',       // Shadow color
-  shadowDark: 'rgba(0, 0, 0, 0.15)',  // Darker shadow
+  overlay: 'rgba(0, 0, 0, 0.5)',
+  overlayLight: 'rgba(0, 0, 0, 0.3)',
+  shadow: 'rgba(43, 238, 117, 0.08)',      // Green-tinted shadow (Figma)
+  shadowDark: 'rgba(43, 238, 117, 0.15)',  // Stronger green shadow
 
   // Category/Tag Colors
-  tag: '#F0F0F0',              // Tag background
-  tagText: '#666666',          // Tag text
-  tagActive: '#00D563',        // Active tag background
-  tagActiveText: '#FFFFFF',    // Active tag text
+  tag: '#f3f4f6',              // Tag background
+  tagText: '#6b7280',          // Tag text
+  tagActive: '#2bee75',        // Active tag background
+  tagActiveText: '#111827',    // Active tag text (dark on bright green)
 
   // Rating & Stats
   rating: '#FFCC00',           // Star rating yellow
   discount: '#FF3B30',         // Discount/offer red
-  badge: '#00D563',            // Badge background
+  badge: '#2bee75',            // Badge background
 
   // Tab Bar Colors
-  tabActive: '#00D563',        // Active tab icon/text
-  tabInactive: '#999999',      // Inactive tab icon/text
+  tabActive: '#2bee75',        // Active tab
+  tabInactive: '#9ca3af',      // Inactive tab
   tabBackground: '#FFFFFF',    // Tab bar background
 
   // Special UI States
-  shimmer: '#E0E0E0',          // Shimmer loading effect
-  shimmerHighlight: '#F5F5F5', // Shimmer highlight
-  skeleton: '#F0F0F0',         // Skeleton loading
+  shimmer: '#e5e7eb',
+  shimmerHighlight: '#f9fafb',
+  skeleton: '#f3f4f6',
 
-  // Gradient Colors (for premium features)
-  gradientStart: '#00D563',    // Gradient start (green)
-  gradientEnd: '#00B854',      // Gradient end (darker green)
+  // Splash screen (dark theme — special case)
+  splashBackground: '#0f2319', // Dark green-black
+  splashAccent: '#00ff94',     // Neon mint glow
 
-  // Nutritional Info Colors (for macro displays)
-  protein: '#FF6B6B',          // Red for protein
-  carbs: '#4ECDC4',            // Teal for carbs
-  fats: '#FFE66D',             // Yellow for fats
-  calories: '#00D563',         // Green for calories
+  // Gradient Colors
+  gradientStart: '#2bee75',
+  gradientEnd: '#1db85d',
 
-  // Additional Utility Colors
+  // Nutritional Macro Colors (Figma progress bar colors)
+  protein: '#2bee75',   // Green  (was #FF6B6B)
+  carbs: '#60a5fa',     // Blue   (was #4ECDC4)
+  fats: '#fbbf24',      // Yellow (was #FFE66D)
+  calories: '#2bee75',  // Green
+
+  // Utility
   white: '#FFFFFF',
   black: '#000000',
   transparent: 'transparent',
 
-  // Grey Scale (for various UI needs)
-  grey50: '#FAFAFA',
-  grey100: '#F5F5F5',
-  grey200: '#EEEEEE',
-  grey300: '#E0E0E0',
-  grey400: '#BDBDBD',
-  grey500: '#9E9E9E',
-  grey600: '#757575',
-  grey700: '#616161',
-  grey800: '#424242',
-  grey900: '#212121',
+  // Grey Scale
+  grey50: '#f9fafb',
+  grey100: '#f3f4f6',
+  grey200: '#e5e7eb',
+  grey300: '#d1d5db',
+  grey400: '#9ca3af',
+  grey500: '#6b7280',
+  grey600: '#4b5563',
+  grey700: '#374151',
+  grey800: '#1f2937',
+  grey900: '#111827',
 } as const;
 
-// Type for color keys (useful for TypeScript autocomplete)
 export type ColorKey = keyof typeof Colors;
 
-// Helper function to get color with opacity
 export const colorWithOpacity = (color: string, opacity: number): string => {
-  // Convert hex to rgba
   const hex = color.replace('#', '');
   const r = parseInt(hex.substring(0, 2), 16);
   const g = parseInt(hex.substring(2, 4), 16);
@@ -125,9 +126,7 @@ export const colorWithOpacity = (color: string, opacity: number): string => {
   return `rgba(${r}, ${g}, ${b}, ${opacity})`;
 };
 
-// Semantic color aliases for specific use cases
 export const SemanticColors = {
-  // Authentication screens
   authBackground: Colors.background,
   authPrimary: Colors.primary,
   authText: Colors.text,
@@ -135,20 +134,17 @@ export const SemanticColors = {
   authInputBg: Colors.inputBackground,
   authInputBorder: Colors.inputBorder,
 
-  // Home/Explore screens
   homeBackground: Colors.background,
   mealCardBg: Colors.card,
   mealCardBorder: Colors.borderLight,
   chefRating: Colors.rating,
   quickDelivery: Colors.success,
 
-  // Order screens
   orderActive: Colors.success,
   orderPending: Colors.warning,
   orderCancelled: Colors.error,
   orderBackground: Colors.background,
 
-  // Profile screens
   profileBackground: Colors.background,
   profileCard: Colors.card,
   profileBorder: Colors.border,

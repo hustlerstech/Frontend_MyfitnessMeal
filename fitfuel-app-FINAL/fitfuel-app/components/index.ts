@@ -52,9 +52,18 @@ export type {
   SectionHeaderProps,
   StatCardProps,
   InputFieldProps,
+} from './common';
+
+export type {
   OTPInputProps,
   BackButtonProps,
+} from './auth';
+
+export type {
   MealCardProps,
   CaloriesChartProps,
+} from './meal';
+
+export type {
   CircularProgressProps,
-} from './common';
+} from './tracking';

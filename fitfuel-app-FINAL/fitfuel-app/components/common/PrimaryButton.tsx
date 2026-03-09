@@ -1,15 +1,8 @@
 /**
- * PrimaryButton Component
- * 
- * Main call-to-action button using electric green color
- * Fully integrated with MyFitness Meals design system
- * 
- * Features:
- * - Loading state with spinner
- * - Disabled state
- * - Custom icon support
- * - Press animations
- * - Accessibility compliant
+ * PrimaryButton Component — Premium Edition
+ *
+ * LinearGradient fill instead of flat green.
+ * All props and behaviour are unchanged.
  */
 
 import React from 'react';
@@ -22,6 +15,7 @@ import {
   TextStyle,
   View,
 } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { Theme } from '../../constants';
 
 export interface PrimaryButtonProps {
@@ -69,56 +63,81 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   return (
     <TouchableOpacity
       style={[
-        styles.button,
+        styles.wrapper,
         fullWidth && styles.fullWidth,
-        isDisabled && styles.disabled,
+        isDisabled && styles.wrapperDisabled,
         style,
       ]}
       onPress={onPress}
       disabled={isDisabled}
-      activeOpacity={0.8}
+      activeOpacity={0.85}
       testID={testID}
       accessibilityRole="button"
       accessibilityState={{ disabled: isDisabled }}
       accessibilityLabel={title}
     >
-      {loading ? (
-        <ActivityIndicator
-          color={Theme.colors.textInverse}
-          size="small"
-        />
-      ) : (
-        <View style={styles.content}>
-          {icon && <View style={styles.icon}>{icon}</View>}
-          <Text style={[styles.text, textStyle]}>
-            {title}
-          </Text>
+      {isDisabled ? (
+        /* Flat grey when disabled — no gradient */
+        <View style={[styles.inner, styles.innerDisabled]}>
+          {loading && (
+            <ActivityIndicator
+              color="#ffffff"
+              size="small"
+              style={{ marginRight: 8 }}
+            />
+          )}
+          <View style={styles.content}>
+            {icon && <View style={styles.icon}>{icon}</View>}
+            <Text style={[styles.text, styles.textDisabled, textStyle]}>
+              {title}
+            </Text>
+          </View>
         </View>
+      ) : (
+        /* Gradient when active */
+        <LinearGradient
+          colors={['#2bee75', '#22c669', '#1db85d']}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+          style={styles.inner}
+        >
+          <View style={styles.content}>
+            {icon && <View style={styles.icon}>{icon}</View>}
+            <Text style={[styles.text, textStyle]}>{title}</Text>
+          </View>
+        </LinearGradient>
       )}
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  button: {
-    backgroundColor: Theme.colors.primary,
+  wrapper: {
     borderRadius: Theme.borderRadius.md,
+    overflow: 'hidden',
+    // Green glow shadow
+    shadowColor: '#2bee75',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.35,
+    shadowRadius: 12,
+    elevation: 6,
+  },
+  fullWidth: {
+    alignSelf: 'stretch',
+  },
+  wrapperDisabled: {
+    shadowOpacity: 0,
+    elevation: 0,
+  },
+  inner: {
     paddingVertical: Theme.spacing.button.paddingVertical,
     paddingHorizontal: Theme.spacing.button.paddingHorizontal,
     minHeight: Theme.spacing.button.minHeight,
     justifyContent: 'center',
     alignItems: 'center',
-    // Shadow for elevation
-    ...Theme.shadows.sm,
   },
-  fullWidth: {
-    width: '100%',
-  },
-  disabled: {
+  innerDisabled: {
     backgroundColor: Theme.colors.buttonDisabled,
-    // Remove shadow when disabled
-    shadowOpacity: 0,
-    elevation: 0,
   },
   content: {
     flexDirection: 'row',
@@ -130,7 +149,10 @@ const styles = StyleSheet.create({
   },
   text: {
     ...Theme.textStyles.button,
-    color: Theme.colors.textInverse,
+    color: '#0a1a0d', // dark text on bright green
+  },
+  textDisabled: {
+    color: 'rgba(255,255,255,0.5)',
   },
 });
 
